@@ -6,14 +6,18 @@
         "use": "@vercel/static"
       },
       {
-        "src": "/images/*",
+        "src": "images/**",
         "use": "@vercel/static"
       }
     ],
     "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/NVR.html"
-        }
-      ]
+      {
+        "src": "/images/(.*)",
+        "dest": "/images/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/NVR.html"
+      }
+    ]
   }
