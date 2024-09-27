@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +28,15 @@
         }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .carousel-item {
@@ -49,13 +57,15 @@
             max-height: 1000px;
             transition: max-height 0.5s ease-in;
         }
+
         header {
             margin-top: 70px;
         }
+
         .header-carousel {
             position: relative;
-            height: 50vh; /* Increased height to 80% of viewport height */
-            height: 500px; 
+            /* Increased height to 80% of viewport height */
+            height: 500px;
             overflow: hidden;
             padding: 20px 0;
         }
@@ -139,10 +149,23 @@
             z-index: 100;
         }
 
+        #celebration {
+            margin-top: 90px;
+            line-height: 1;
+        }
+
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .tag-animation {
@@ -150,9 +173,19 @@
         }
 
         @keyframes scaleIn {
-            0% { transform: scale(0); opacity: 0; }
-            60% { transform: scale(1.2); }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .fade-in-up {
@@ -186,9 +219,11 @@
         .location-carousel img.active {
             opacity: 1;
         }
-        #date{
+
+        #date {
             margin-top: 100px;
         }
+
         .event-card {
             opacity: 0;
             transform: translateY(20px);
@@ -201,58 +236,83 @@
         }
 
         .event-sangeeth {
-             background-color: #FDF2F8;  
-             z-index: 0;
-            }
-        .event-haldi-mehendi { background-color: #FEF3C7;z-index: 0; }
-        .event-wedding { background-color: #FECACA;z-index: 0; }
+            background-color: #FDF2F8;
+            z-index: 0;
+        }
+
+        .event-haldi-mehendi {
+            background-color: #FEF3C7;
+            z-index: 0;
+        }
+
+        .event-wedding {
+            background-color: #FECACA;
+            z-index: 0;
+        }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out forwards;
         }
+
         .navbar {
-            background-color: #8C6D69; /* Elegant mauve for navbar */
+            background-color: #8C6D69;
+            /* Elegant mauve for navbar */
             position: fixed;
             right: 0;
             top: 0;
             width: 100vw;
             z-index: 999;
             opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-out;
+            pointer-events: none;
+            transition: opacity 0.5s ease-out;
         }
+
         .navbar-text {
-            color: #F8F5F0; /* Soft cream color for navbar text */
+            color: #F8F5F0;
+            /* Soft cream color for navbar text */
         }
-        .footer-content{
+
+        .footer-content {
             background-color: #8C6D69;
             width: 100vw;
             padding: 3rem 0;
             margin-top: 3rem;
         }
-       footer{
-        width: 100%;
-        position: absolute;
-        left: 0;
-        margin-left: 0;
-        padding: 0;
-       }
-        .footer-text {
-            color: #F8F5F0; 
+
+        footer {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            margin-left: 0;
+            padding: 0;
         }
+
+        .footer-text {
+            color: #F8F5F0;
+        }
+
         .navbar-brand {
             color: #2C0E0E;
             font-weight: bold;
             display: flex;
             overflow: hidden;
-            width: 150px; /* Adjust based on your text length */
+            width: 150px;
+            /* Adjust based on your text length */
             justify-content: center;
         }
+
         .navbar-brand span {
             display: inline-block;
             animation: loopSlide 4s infinite;
@@ -260,14 +320,19 @@
         }
 
         @keyframes loopSlide {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateX(100%);
                 opacity: 0;
             }
-            10%, 90% {
+
+            10%,
+            90% {
                 transform: translateX(0);
                 opacity: 1;
             }
+
             99% {
                 transform: translateX(-100%);
                 opacity: 0;
@@ -290,61 +355,174 @@
                 top: -10%;
                 transform: translateX(0) rotateZ(0deg);
             }
+
             100% {
                 top: 100%;
                 transform: translateX(100px) rotateZ(360deg);
             }
         }
 
-        .petal:nth-child(1) { left: 10%; animation: falling 10s linear infinite; animation-delay: -2s; }
-        .petal:nth-child(2) { left: 20%; animation: falling 12s linear infinite; animation-delay: -4s; }
-        .petal:nth-child(3) { left: 30%; animation: falling 9s linear infinite; animation-delay: -7s; }
-        .petal:nth-child(4) { left: 40%; animation: falling 11s linear infinite; animation-delay: -5s; }
-        .petal:nth-child(5) { left: 50%; animation: falling 13s linear infinite; animation-delay: -1s; }
-        .petal:nth-child(6) { left: 60%; animation: falling 10s linear infinite; animation-delay: -9s; }
-        .petal:nth-child(7) { left: 70%; animation: falling 12s linear infinite; animation-delay: -6s; }
-        .petal:nth-child(8) { left: 80%; animation: falling 9s linear infinite; animation-delay: -3s; }
-        .petal:nth-child(9) { left: 90%; animation: falling 11s linear infinite; animation-delay: -8s; }
+        .petal:nth-child(1) {
+            left: 10%;
+            animation: falling 10s linear infinite;
+            animation-delay: -2s;
+        }
+
+        .petal:nth-child(2) {
+            left: 20%;
+            animation: falling 12s linear infinite;
+            animation-delay: -4s;
+        }
+
+        .petal:nth-child(3) {
+            left: 30%;
+            animation: falling 9s linear infinite;
+            animation-delay: -7s;
+        }
+
+        .petal:nth-child(4) {
+            left: 40%;
+            animation: falling 11s linear infinite;
+            animation-delay: -5s;
+        }
+
+        .petal:nth-child(5) {
+            left: 50%;
+            animation: falling 13s linear infinite;
+            animation-delay: -1s;
+        }
+
+        .petal:nth-child(6) {
+            left: 60%;
+            animation: falling 10s linear infinite;
+            animation-delay: -9s;
+        }
+
+        .petal:nth-child(7) {
+            left: 70%;
+            animation: falling 12s linear infinite;
+            animation-delay: -6s;
+        }
+
+        .petal:nth-child(8) {
+            left: 80%;
+            animation: falling 9s linear infinite;
+            animation-delay: -3s;
+        }
+
+        .petal:nth-child(9) {
+            left: 90%;
+            animation: falling 11s linear infinite;
+            animation-delay: -8s;
+        }
 
         .story-section {
-           
+
             padding: 4rem 2rem;
             margin-top: 3rem;
             margin-bottom: 3rem;
         }
+
         .story-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1rem;
         }
+
         .testimonial {
             font-style: italic;
             font-size: 1.25rem;
             color: #4B5563;
             margin-bottom: 2rem;
         }
+
         .story-text {
             line-height: 1.8;
             color: #374151;
         }
 
-     
+        .tag-line-1 {
+            margin-top: -15px;
+        }
+
+        .light {
+            position: fixed;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: fall linear infinite, glow 1s ease-in-out infinite alternate;
+            z-index: 99;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(-10vw);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(10vw);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px #FFD700;
+            }
+
+            100% {
+                box-shadow: 0 0 20px #FFD700, 0 0 35px #FFD700;
+            }
+        }
+
+        .flower {
+            position: fixed;
+            font-size: 24px;
+            user-select: none;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) translateX(-20px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) translateX(20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .live-stream-btn {
+            background-color: #2C0E0E;
+        }
     </style>
 </head>
-<body>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
 
+<body>
+    <div id="flowers-container"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99;"></div>
+    <!-- <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div> -->
+
+
+
+    <div id="lights-container"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99;"></div>
     <div id="splash" class="fixed inset-0 flex items-center justify-center z-50">
         <div class="text-center">
-            <h1 class="text-6xl cursive text-gray-800 mb-4 hero-text">#NVR 8 to ∞</h1>
+            <h1 class="text-6xl cursive text-gray-800 mb-4 hero-text">#nvr 8 to ∞</h1>
             <p class="text-2xl text-gray-700 tag-animation">Our Wedding Celebration</p>
         </div>
     </div>
@@ -371,19 +549,29 @@
                 </div>
             </div>
             <!-- Removed left and right arrows -->
-            <div class="carousel-indicators">
-                <div class="carousel-indicator active"></div>
-                <div class="carousel-indicator"></div>
-                <div class="carousel-indicator"></div>
-            </div>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-8">
-        <section class="text-center mb-12 fade-in-up" id="date">
+        <!-- <section class="text-center mb-12 fade-in-up" id="date">
             <h2 class="text-4xl cursive mb-4">Save the Date</h2>
             <p class="text-2xl font-light mb-4">17/11/2024</p>
-            <button class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300" onclick="addToCalendar('Wedding', '2024-11-17','10:10 AM','KLN utsav')">Add to Calendar</button>
+            <button class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300" onclick="addToCalendar('(nikhil & ravali) Wedding', '17 Nov 2024','10:10 AM','KLN utsav')">Add to Calendar</button>
+        </section> -->
+
+        <section class="text-center mb-8 fade-in-up" id="celebration">
+            <h2 class="text-4xl cursive mb-1">Nikhil & Ravali</h2>
+            <p class="text-lg font-light italic text-gray-600 mb-8 tag-line-1">are tying the knot!</p>
+            <div class="mt-4">
+                <p class="text-xl cursive mb-1">Help us capture the magic of our special day!</p>
+                <p class="text-base italic text-gray-600 mb-4 tag-line-">Click creative pictures during the celebration
+                    and share them with us.</p>
+                <button
+                    class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300 text-base"
+                    onclick="openPhotoSharing()">
+                    Share Your Moments
+                </button>
+            </div>
         </section>
 
         <main class="container mx-auto px-6 py-8 relative z-10">
@@ -393,28 +581,40 @@
                     <div class="event-card rounded-lg shadow-md overflow-hidden fade-in-up event-sangeeth">
                         <div class="p-6">
                             <h3 class="text-3xl cursive">Sangeeth</h3>
-                            <p class="mb-4">Join us for a night of music and dance as we celebrate the upcoming union!</p>
+                            <p class="mb-4">Join us for a night of music and dance as we celebrate the upcoming union!
+                            </p>
                             <p class="mb-2"><strong>Date:</strong> 3rd Nov, 2024</p>
                             <p class="mb-2"><strong>Venue:</strong> Open Lawns</p>
                             <p class="mb-2"><strong>Time:</strong> 7:00 PM</p>
                             <p class="mb-4"><strong>Dress Code:</strong> Colorful Traditional</p>
-                            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center" 
-                                    onclick="addToCalendar('Sangeeth', '3 Nov 2024', '19:00 ', 'KLN utsav')">
-                                <i class="fas fa-calendar-plus mr-2"></i>
-                                Add to Calendar
-                            </button>
+                            <div class="flex space-x-4">
+                                <button
+                                    class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                                    onclick="addToCalendar('(nikhil & ravali) Sangeeth', '3 Nov 2024', '19:00 ', 'KLN utsav')">
+                                    <i class="fas fa-calendar-plus mr-2"></i>
+                                    Add to Calendar
+                                </button>
+                                <button
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center"
+                                    onclick="openLiveStream()">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Live Stream
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="event-card rounded-lg shadow-md overflow-hidden fade-in-up event-haldi-mehendi">
                         <div class="p-6">
                             <h3 class="text-3xl cursive mb-4">Haldi and Mehendi</h3>
-                            <p class="mb-4">Experience the vibrant colors and traditions of our Haldi and Mehendi ceremonies!</p>
+                            <p class="mb-4">Experience the vibrant colors and traditions of our Haldi and Mehendi
+                                ceremonies!</p>
                             <p class="mb-2"><strong>Date:</strong> 16th Nov, 2024</p>
                             <p class="mb-2"><strong>Venue:</strong> Pool Side and Tree Canopies</p>
                             <p class="mb-2"><strong>Time:</strong> 8:00 AM</p>
                             <p class="mb-4"><strong>Dress Code:</strong> Casual Traditional</p>
-                            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
-                                    onclick="addToCalendar('Haldi and Mehendi', '16 Nov 2024', '08:00 ', 'KLN utsav')">
+                            <button
+                                class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                                onclick="addToCalendar('(nikhil & ravali) Haldi and Mehendi', '16 Nov 2024', '08:00 ', 'KLN utsav')">
                                 <i class="fas fa-calendar-plus mr-2"></i>
                                 Add to Calendar
                             </button>
@@ -428,11 +628,20 @@
                             <p class="mb-2"><strong>Venue:</strong> Open Lawns</p>
                             <p class="mb-2"><strong>Time:</strong> 10:00 AM</p>
                             <p class="mb-4"><strong>Dress Code:</strong> Formal</p>
-                            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
-                                    onclick="addToCalendar('Wedding', '17 Nov 2024', '10:10', 'KLN utsav')">
-                                <i class="fas fa-calendar-plus mr-2"></i>
-                                Add to Calendar
-                            </button>
+                            <div class="flex space-x-4">
+                                <button
+                                    class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                                    onclick="addToCalendar('(nikhil & ravali) Wedding', '17 Nov 2024', '10:10', 'KLN utsav')">
+                                    <i class="fas fa-calendar-plus mr-2"></i>
+                                    Add to Calendar
+                                </button>
+                                <button
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center"
+                                    onclick="openLiveStream()">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Live Stream
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -442,16 +651,27 @@
                 <div class="story-content text-center">
                     <h2 class="text-5xl cursive mb-6">Our Story</h2>
                     <div class="testimonial mb-8">
-                        "From strangers to soulmates, our journey has been a beautiful rollercoaster of love, laughter, and growth. Every twist and turn has led us to this moment, and we couldn't be more excited for the ride ahead."
+                        "From strangers to soulmates, our journey has been a beautiful rollercoaster of love, laughter,
+                        and growth. Every twist and turn has led us to this moment, and we couldn't be more excited for
+                        the ride ahead."
                     </div>
                     <p class="story-text mb-4">
-                        Eight years ago, fate brought us together in the most unexpected way. Like two stars colliding, our worlds merged, igniting a spark that would grow into an eternal flame. Our journey hasn't always been smooth sailing - it's been more like a thrilling rollercoaster ride, full of exhilarating highs, challenging lows, and unexpected turns.
+                        Eight years ago, fate brought us together in the most unexpected way. Like two stars colliding,
+                        our worlds merged, igniting a spark that would grow into an eternal flame. Our journey hasn't
+                        always been smooth sailing - it's been more like a thrilling rollercoaster ride, full of
+                        exhilarating highs, challenging lows, and unexpected turns.
                     </p>
                     <p class="story-text mb-4">
-                        Through late-night study sessions that turned into deep conversations, surprise date nights that went hilariously wrong, and spontaneous adventures that tested our limits, we've laughed, cried, and grown together. We've seen each other at our best and worst, and our love has only deepened with each passing day.
+                        Through late-night study sessions that turned into deep conversations, surprise date nights that
+                        went hilariously wrong, and spontaneous adventures that tested our limits, we've laughed, cried,
+                        and grown together. We've seen each other at our best and worst, and our love has only deepened
+                        with each passing day.
                     </p>
                     <p class="story-text">
-                        From our first awkward hello to the moment we decided forever didn't seem long enough, every experience has shaped our unique love story. Now, as we stand on the brink of a new chapter, we invite you to join us in celebrating not just our wedding day, but the beautiful, chaotic, and absolutely perfect journey that has led us here. Here's to the next infinity of years together!
+                        From our first awkward hello to the moment we decided forever didn't seem long enough, every
+                        experience has shaped our unique love story. Now, as we stand on the brink of a new chapter, we
+                        invite you to join us in celebrating not just our wedding day, but the beautiful, chaotic, and
+                        absolutely perfect journey that has led us here. Here's to the next infinity of years together!
                     </p>
                 </div>
             </section>
@@ -466,213 +686,290 @@
                     <img src="/images/kln-5.jpg" alt="Venue Image 5">
                     <img src="/images/kln-6.jpg" alt="Venue Image 6">
                 </div>
-                <p class="mb-4 text-center" style="color: #4A4A4A;"><strong>Venue:</strong> KLN Utsav, Janwada, Hyderabad, Telangana 500075</p>
+                <p class="mb-4 text-center" style="color: #4A4A4A;"><strong>Venue:</strong> KLN Utsav, Janwada,
+                    Hyderabad, Telangana 500075</p>
                 <div class="text-center">
-                    <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300" onclick="openDirections()">Get Directions</button>
+                    <button
+                        class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300"
+                        onclick="openDirections()">Get Directions</button>
                 </div>
             </section>
-    </main>
+        </main>
 
-    <footer class="bg-gray-100 py-12 mt-12 footer-content">
-        <div class="container mx-auto px-6 text-center">
-            <p class="footer-text text-2xl cursive mb-4">Join us in celebrating our love</p>
-            <p class="footer-text max-w-2xl mx-auto">
-                We cordially invite you to be part of our special day as we embark on this beautiful journey of love and togetherness. Your presence will make our celebration complete.
-            </p>
-        </div>
-    </footer>
+        <footer class="bg-gray-100 py-12 mt-12 footer-content">
+            <div class="container mx-auto px-6 text-center">
+                <p class="footer-text text-2xl cursive mb-4">Join us in celebrating our love</p>
+                <p class="footer-text max-w-2xl mx-auto">
+                    We cordially invite you to be part of our special day as we embark on this beautiful journey of love
+                    and togetherness. Your presence will make our celebration complete.
+                </p>
+            </div>
+        </footer>
 
-    <script>
-        // Splash screen
-        setTimeout(() => {
-            document.getElementById('splash').style.opacity = 0;
+        <script>
+            // Splash screen
             setTimeout(() => {
-                document.getElementById('splash').style.display = 'none';
-            }, 1000);
-        }, 3000);
-
-        
-
-
-        const headerCarouselContainer = document.querySelector('.header-carousel-container');
-        const headerCarouselItems = headerCarouselContainer.querySelectorAll('.header-carousel-item');
-        const carouselIndicators = document.querySelectorAll('.carousel-indicator');
-        let headerCurrentIndex = 0;
-
-        function updateHeaderCarousel() {
-            headerCarouselContainer.style.transform = `translateX(-${headerCurrentIndex * 100}%)`;
-            
-            headerCarouselItems.forEach((item, index) => {
-                item.classList.toggle('active', index === headerCurrentIndex);
-            });
-
-            carouselIndicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === headerCurrentIndex);
-            });
-        }
-
-        function slideHeaderCarousel(direction) {
-            headerCurrentIndex = (headerCurrentIndex + direction + headerCarouselItems.length) % headerCarouselItems.length;
-            updateHeaderCarousel();
-        }
-
-        // Auto slide every 5 seconds
-        setInterval(() => slideHeaderCarousel(1), 3000);
-
-        // Initialize the carousel
-        updateHeaderCarousel();
-
-        // Accordion
-        function toggleAccordion(element) {
-            const card = element.closest('.event-card');
-            const content = card.querySelector('.accordion-content');
-            content.classList.toggle('active');
-        }
-
-        // Add to Calendar
-        function addToCalendar(event, date) {
-            alert(`Added ${event} on ${date} to your calendar!`);
-            // Implement actual calendar integration here
-        }
-
-        // Open Google Maps directions
-        function openDirections() {
-            window.open('https://www.google.com/maps/dir//C69Q%2B8C6,+Hyderabad,+Telangana+500075/@17.4182657,78.1561133,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcbed2a7cc0cab7:0x360464462999551a!2m2!1d78.2385151!2d17.4182826?entry=ttu&g_ep=EgoyMDI0MDkyMy4wIKXMDSoASAFQAw%3D%3D', '_blank');
-        }
-
-        // Scroll animation
-        const eventCards = document.querySelectorAll('.event-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        eventCards.forEach(card => {
-            observer.observe(card);
-        });
-        // Location carousel
-        const locationCarousel = document.querySelector('.location-carousel');
-        const locationImages = locationCarousel.querySelectorAll('img');
-        let currentLocationImage = 0;
-
-        function showNextLocationImage() {
-            locationImages[currentLocationImage].classList.remove('active');
-            currentLocationImage = (currentLocationImage + 1) % locationImages.length;
-            locationImages[currentLocationImage].classList.add('active');
-        }
-
-        setInterval(showNextLocationImage, 3000);
-        function animateCards() {
-            const cards = document.querySelectorAll('.event-card');
-            cards.forEach((card, index) => {
+                document.getElementById('splash').style.opacity = 0;
                 setTimeout(() => {
-                    card.classList.add('visible');
-                }, index * 200); // Stagger the animations
-            });
-        }
+                    document.getElementById('splash').style.display = 'none';
+                }, 1000);
+            }, 3000);
 
-        // Run animation when content is loaded
-        document.addEventListener('DOMContentLoaded', animateCards);
 
-        // Add to Calendar function
-        function addToCalendar(eventTitle, eventDate, eventTime, venue) {
-            const startDateTime = new Date(eventDate + ' ' + eventTime);
-            const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
 
-            const ua = navigator.userAgent.toLowerCase();
-            const isiOS = /iphone|ipad|ipod/.test(ua);
-            const isAndroid = /android/.test(ua);
-            const isMac = /macintosh|mac os x/.test(ua);
-            const isWindows = /win/.test(ua);
 
-            if (isiOS) {
-                addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue);
-            } else if (isAndroid) {
-                addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
-            } else if (isMac) {
-                // Offer choice between Apple Calendar and Google Calendar
-                if (confirm('Do you want to add this event to Apple Calendar? Click OK for Apple Calendar or Cancel for Google Calendar.')) {
-                    addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue);
-                } else {
-                    addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
-                }
-            } else if (isWindows) {
-                // Offer choice between Outlook and Google Calendar
-                if (confirm('Do you want to add this event to Outlook? Click OK for Outlook or Cancel for Google Calendar.')) {
-                    addToOutlookCalendar(eventTitle, startDateTime, endDateTime, venue);
-                } else {
-                    addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
-                }
-            } else {
-                // Default to Google Calendar for unknown devices
-                addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
+            const headerCarouselContainer = document.querySelector('.header-carousel-container');
+            const headerCarouselItems = headerCarouselContainer.querySelectorAll('.header-carousel-item');
+            const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+            let headerCurrentIndex = 0;
+
+            function updateHeaderCarousel() {
+                headerCarouselContainer.style.transform = `translateX(-${headerCurrentIndex * 100}%)`;
+
+                headerCarouselItems.forEach((item, index) => {
+                    item.classList.toggle('active', index === headerCurrentIndex);
+                });
+
+                carouselIndicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === headerCurrentIndex);
+                });
             }
-        }
 
-        function addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue) {
-            const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE' +
-                '&text=' + encodeURIComponent(eventTitle) +
-                '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-                '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-                '&details=' + encodeURIComponent('Wedding Event') +
-                '&location=' + encodeURIComponent(venue) +
-                '&sf=true&output=xml';
+            function slideHeaderCarousel(direction) {
+                headerCurrentIndex = (headerCurrentIndex + direction + headerCarouselItems.length) % headerCarouselItems.length;
+                updateHeaderCarousel();
+            }
 
-            window.open(googleCalendarUrl, '_blank');
-        }
+            // Auto slide every 5 seconds
+            setInterval(() => slideHeaderCarousel(1), 3000);
 
-        function addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue) {
-            const appleCalendarUrl = 'data:text/calendar;charset=utf-8,' +
-                encodeURIComponent('BEGIN:VCALENDAR\n' +
-                'VERSION:2.0\n' +
-                'BEGIN:VEVENT\n' +
-                'URL:' + document.URL + '\n' +
-                'DTSTART:' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') + '\n' +
-                'DTEND:' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') + '\n' +
-                'SUMMARY:' + eventTitle + '\n' +
-                'DESCRIPTION:Wedding Event\n' +
-                'LOCATION:' + venue + '\n' +
-                'END:VEVENT\n' +
-                'END:VCALENDAR');
+            // Initialize the carousel
+            updateHeaderCarousel();
 
-            window.open(appleCalendarUrl);
-        }
+            // Accordion
+            function toggleAccordion(element) {
+                const card = element.closest('.event-card');
+                const content = card.querySelector('.accordion-content');
+                content.classList.toggle('active');
+            }
 
-        function addToOutlookCalendar(eventTitle, startDateTime, endDateTime, venue) {
-            window.open('https://outlook.office.com/owa/?path=/calendar/action/compose&rru=addevent&' +
-                'subject=' + encodeURIComponent(eventTitle) +
-                '&startdt=' + startDateTime.toISOString() +
-                '&enddt=' + endDateTime.toISOString() +
-                '&body=' + encodeURIComponent('Wedding Event') +
-                '&location=' + encodeURIComponent(venue));
-        }
+            // Add to Calendar
+            function addToCalendar(event, date) {
+                alert(`Added ${event} on ${date} to your calendar!`);
+                // Implement actual calendar integration here
+            }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const text = "#NVR 8 to ∞";
-            const container = document.getElementById('animatedText');
-            
-            text.split('').forEach((char, index) => {
-                const span = document.createElement('span');
-                span.textContent = char;
-                span.style.animationDelay = `${index * 0.1}s`;
-                container.appendChild(span);
+            // Open Google Maps directions
+            function openDirections() {
+                window.open('https://www.google.com/maps/dir//C69Q%2B8C6,+Hyderabad,+Telangana+500075/@17.4182657,78.1561133,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcbed2a7cc0cab7:0x360464462999551a!2m2!1d78.2385151!2d17.4182826?entry=ttu&g_ep=EgoyMDI0MDkyMy4wIKXMDSoASAFQAw%3D%3D', '_blank');
+            }
+
+            // Scroll animation
+            const eventCards = document.querySelectorAll('.event-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            eventCards.forEach(card => {
+                observer.observe(card);
             });
-        });
-        setTimeout(() => {
-    document.getElementById('splash').style.opacity = 0;
-    setTimeout(() => {
-        document.getElementById('splash').style.display = 'none';
-        // Show the navbar
-        const navbar = document.querySelector('.navbar');
-        navbar.style.opacity = 1;
-        navbar.style.pointerEvents = 'auto';
-    }, 1000);
-}, 3000);
+            // Location carousel
+            const locationCarousel = document.querySelector('.location-carousel');
+            const locationImages = locationCarousel.querySelectorAll('img');
+            let currentLocationImage = 0;
+
+            function showNextLocationImage() {
+                locationImages[currentLocationImage].classList.remove('active');
+                currentLocationImage = (currentLocationImage + 1) % locationImages.length;
+                locationImages[currentLocationImage].classList.add('active');
+            }
+
+            setInterval(showNextLocationImage, 3000);
+            function animateCards() {
+                const cards = document.querySelectorAll('.event-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 200); // Stagger the animations
+                });
+            }
+
+            // Run animation when content is loaded
+            document.addEventListener('DOMContentLoaded', animateCards);
+
+            // Add to Calendar function
+            function addToCalendar(eventTitle, eventDate, eventTime, venue) {
+                const startDateTime = new Date(eventDate + ' ' + eventTime);
+                const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
+
+                const ua = navigator.userAgent.toLowerCase();
+                const isiOS = /iphone|ipad|ipod/.test(ua);
+                const isAndroid = /android/.test(ua);
+                const isMac = /macintosh|mac os x/.test(ua);
+                const isWindows = /win/.test(ua);
+
+                if (isiOS) {
+                    addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                } else if (isAndroid) {
+                    addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                } else if (isMac) {
+                    // Offer choice between Apple Calendar and Google Calendar
+                    if (confirm('Do you want to add this event to Apple Calendar? Click OK for Apple Calendar or Cancel for Google Calendar.')) {
+                        addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                    } else {
+                        addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                    }
+                } else if (isWindows) {
+                    // Offer choice between Outlook and Google Calendar
+                    if (confirm('Do you want to add this event to Outlook? Click OK for Outlook or Cancel for Google Calendar.')) {
+                        addToOutlookCalendar(eventTitle, startDateTime, endDateTime, venue);
+                    } else {
+                        addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                    }
+                } else {
+                    // Default to Google Calendar for unknown devices
+                    addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue);
+                }
+            }
+
+            function addToGoogleCalendar(eventTitle, startDateTime, endDateTime, venue) {
+                const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE' +
+                    '&text=' + encodeURIComponent(eventTitle) +
+                    '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
+                    '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
+                    '&details=' + encodeURIComponent('Wedding Event') +
+                    '&location=' + encodeURIComponent(venue) +
+                    '&sf=true&output=xml';
+
+                window.open(googleCalendarUrl, '_blank');
+            }
+
+            function addToAppleCalendar(eventTitle, startDateTime, endDateTime, venue) {
+                const appleCalendarUrl = 'data:text/calendar;charset=utf-8,' +
+                    encodeURIComponent('BEGIN:VCALENDAR\n' +
+                        'VERSION:2.0\n' +
+                        'BEGIN:VEVENT\n' +
+                        'URL:' + document.URL + '\n' +
+                        'DTSTART:' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') + '\n' +
+                        'DTEND:' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') + '\n' +
+                        'SUMMARY:' + eventTitle + '\n' +
+                        'DESCRIPTION:Wedding Event\n' +
+                        'LOCATION:' + venue + '\n' +
+                        'END:VEVENT\n' +
+                        'END:VCALENDAR');
+
+                window.open(appleCalendarUrl);
+            }
+
+            function addToOutlookCalendar(eventTitle, startDateTime, endDateTime, venue) {
+                window.open('https://outlook.office.com/owa/?path=/calendar/action/compose&rru=addevent&' +
+                    'subject=' + encodeURIComponent(eventTitle) +
+                    '&startdt=' + startDateTime.toISOString() +
+                    '&enddt=' + endDateTime.toISOString() +
+                    '&body=' + encodeURIComponent('Wedding Event') +
+                    '&location=' + encodeURIComponent(venue));
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const text = "#nvr 8 to ∞";
+                const container = document.getElementById('animatedText');
+
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.style.animationDelay = `${index * 0.1}s`;
+                    container.appendChild(span);
+                });
+            });
+            setTimeout(() => {
+                document.getElementById('splash').style.opacity = 0;
+                setTimeout(() => {
+                    document.getElementById('splash').style.display = 'none';
+                    // Show the navbar
+                    const navbar = document.querySelector('.navbar');
+                    navbar.style.opacity = 1;
+                    navbar.style.pointerEvents = 'auto';
+                }, 1000);
+            }, 3000);
+
+            function openPhotoSharing() {
+                alert("We're excited to see your pictures! We'll provide details on how to share your photos closer to the wedding date. Stay tuned!");
+            }
+
+            function openLiveStream() {
+                alert("Get ready to join us virtually! We'll share the live stream details as we get closer to the big day. Stay tuned for updates!");
+            }
+
+            const maxLights = 50; // Maximum number of lights on screen at once
+            let currentLights = 0;
+
+            function createLight() {
+                if (currentLights >= maxLights) return;
+
+                const light = document.createElement('div');
+                light.classList.add('light');
+                light.style.left = Math.random() * 100 + 'vw';
+                light.style.top = '-10vh'; // Start above the viewport
+                light.style.animationDuration = Math.random() * 3 + 2 + 's';
+                light.style.width = light.style.height = Math.random() * 4 + 2 + 'px';
+                document.getElementById('lights-container').appendChild(light);
+                currentLights++;
+
+                // Remove the light after animation completes
+                light.addEventListener('animationend', () => {
+                    light.remove();
+                    currentLights--;
+                    // Create a new light to replace the removed one
+                    setTimeout(createLight, Math.random() * 1000);
+                });
+            }
+
+            function initializeLights() {
+                for (let i = 0; i < maxLights; i++) {
+                    setTimeout(createLight, Math.random() * 3000);
+                }
+            }
+
+            // Start creating lights when the page is loaded
+            window.addEventListener('load', initializeLights);
+
+            const flowers = ['🌸', '🌺', '🌼', '🌻', '🌹'];
+            const maxFlowers = 10; // Maximum number of flowers on screen at once
+            let currentFlowers = 0;
+
+            function createFlower() {
+                if (currentFlowers >= maxFlowers) return;
+
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.style.left = `${Math.random() * 100}vw`;
+                flower.style.animationDuration = `${Math.random() * 3 + 5}s`;
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                document.getElementById('flowers-container').appendChild(flower);
+                currentFlowers++;
+
+                flower.addEventListener('animationend', () => {
+                    flower.remove();
+                    currentFlowers--;
+                    // Create a new flower to replace the removed one
+                    setTimeout(createFlower, Math.random() * 1000);
+                });
+            }
+
+            function initializeFlowers() {
+                for (let i = 0; i < maxFlowers; i++) {
+                    setTimeout(createFlower, Math.random() * 3000);
+                }
+            }
+
+            window.addEventListener('load', initializeFlowers);
 
 
-    </script>
+        </script>
 </body>
+
 </html>

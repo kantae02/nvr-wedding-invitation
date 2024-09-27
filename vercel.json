@@ -17,7 +17,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/NVR.html"
+        "dest": "/wedding-invite.html"
       }
     ]
   }
