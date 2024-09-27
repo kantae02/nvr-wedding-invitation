@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +11,19 @@
     <link rel="manifest" href="/site.webmanifest">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ics/0.2.0/ics.min.js"></script>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="flowers-container"></div>
     <div id="lights-container"></div>
     <div id="splash" class="fixed inset-0 flex items-center justify-center z-50">
         <div class="text-center">
-            <h1 class="text-6xl cursive text-gray-800 mb-4 hero-text">#nvr 8 to ∞</h1>
-            <p class="text-2xl text-gray-700 tag-animation">Our Wedding Celebration</p>
+            <p id="typing-text" class="text-3xl text-gray-700 mb-4"></p>
+            <div id="main-content" class="opacity-0">
+                <h1 class="text-6xl cursive text-gray-800 mb-4 hero-text">#nvr 8 to ∞</h1>
+                <p class="text-2xl text-gray-700 tag-animation">Our Wedding Celebration</p>
+            </div>
         </div>
     </div>
 
@@ -34,26 +39,29 @@
         <div class="header-carousel w-full h-full">
             <div class="header-carousel-container">
                 <div class="header-carousel-item">
-                    <img src="/images/wedding-couple.webp" alt="Wedding Image 1">
+                    <img src="/images/cartoon-pic(nr).jpg" alt="Wedding Image 1">
                 </div>
                 <div class="header-carousel-item">
-                    <img src="/images/haldi-couple.jpg" alt="Wedding Image 2">
+                    <img src="/images/animated sangeeth-pic .webp" alt="Wedding Image 2">
                 </div>
                 <div class="header-carousel-item">
-                    <img src="/images/wedding-2-couple.jpg" alt="Wedding Image 3">
+                    <img src="/images/animated-pic-nr.webp" alt="Wedding Image 3">
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-8">
+    <main class="container mx-auto px-6  mb-6">
         <section class="text-center mb-8 fade-in-up" id="celebration">
             <h2 class="text-4xl cursive mb-1">Nikhil & Ravali</h2>
             <p class="text-lg font-light italic text-gray-600 mb-8 tag-line-1">are tying the knot!</p>
             <div class="mt-4">
                 <p class="text-xl cursive mb-1">Help us capture the magic of our special day!</p>
-                <p class="text-base italic text-gray-600 mb-4 tag-line-">Click creative pictures during the celebration and share them with us.</p>
-                <button class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300 text-base" onclick="openPhotoSharing()">
+                <p class="text-base italic text-gray-600 mb-4 tag-line-">Click creative pictures during the celebration
+                    and share them with us.</p>
+                <button
+                    class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300 text-base"
+                    onclick="openPhotoSharing()">
                     Share Your Moments
                 </button>
             </div>
@@ -61,7 +69,7 @@
 
         <section id="events" class="mb-12">
             <h2 class="text-5xl cursive mb-6 text-center fade-in-up">Events</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="event-card rounded-lg shadow-md overflow-hidden fade-in-up event-sangeeth">
                     <div class="p-6">
                         <h3 class="text-3xl cursive">Sangeeth</h3>
@@ -71,11 +79,15 @@
                         <p class="mb-2"><strong>Time:</strong> 7:00 PM</p>
                         <p class="mb-4"><strong>Dress Code:</strong> Colorful Traditional</p>
                         <div class="flex space-x-4">
-                            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center" onclick="addToCalendar('(nikhil & ravali) Sangeeth', '3 Nov 2024', '19:00 ', 'KLN utsav')">
+                            <button
+                                class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                                onclick="addToCalendar('(nikhil & ravali) Sangeeth', '3 Nov 2024', '19:00 ', 'KLN utsav')">
                                 <i class="fas fa-calendar-plus mr-2"></i>
                                 Add to Calendar
                             </button>
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center" onclick="openLiveStream()">
+                            <button
+                                class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center"
+                                onclick="openLiveStream()">
                                 <i class="fas fa-video mr-2"></i>
                                 Live Stream
                             </button>
@@ -85,12 +97,15 @@
                 <div class="event-card rounded-lg shadow-md overflow-hidden fade-in-up event-haldi-mehendi">
                     <div class="p-6">
                         <h3 class="text-3xl cursive mb-4">Haldi and Mehendi</h3>
-                        <p class="mb-4">Experience the vibrant colors and traditions of our Haldi and Mehendi ceremonies!</p>
+                        <p class="mb-4">Experience the vibrant colors and traditions of our Haldi and Mehendi
+                            ceremonies!</p>
                         <p class="mb-2"><strong>Date:</strong> 16th Nov, 2024</p>
                         <p class="mb-2"><strong>Venue:</strong> Pool Side and Tree Canopies</p>
                         <p class="mb-2"><strong>Time:</strong> 8:00 AM</p>
                         <p class="mb-4"><strong>Dress Code:</strong> Casual Traditional</p>
-                        <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center" onclick="addToCalendar('(nikhil & ravali) Haldi and Mehendi', '16 Nov 2024', '08:00 ', 'KLN utsav')">
+                        <button
+                            class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                            onclick="addToCalendar('(nikhil & ravali) Haldi and Mehendi', '16 Nov 2024', '08:00 ', 'KLN utsav')">
                             <i class="fas fa-calendar-plus mr-2"></i>
                             Add to Calendar
                         </button>
@@ -105,11 +120,15 @@
                         <p class="mb-2"><strong>Time:</strong> 10:00 AM</p>
                         <p class="mb-4"><strong>Dress Code:</strong> Formal</p>
                         <div class="flex space-x-4">
-                            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center" onclick="addToCalendar('(nikhil & ravali) Wedding', '17 Nov 2024', '10:10', 'KLN utsav')">
+                            <button
+                                class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300 flex items-center"
+                                onclick="addToCalendar('(nikhil & ravali) Wedding', '17 Nov 2024', '10:10', 'KLN utsav')">
                                 <i class="fas fa-calendar-plus mr-2"></i>
                                 Add to Calendar
                             </button>
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center" onclick="openLiveStream()">
+                            <button
+                                class="bg-blue-500 text-white px-4 py-2 rounded-full live-stream-btn transition duration-300 flex items-center"
+                                onclick="openLiveStream()">
                                 <i class="fas fa-video mr-2"></i>
                                 Live Stream
                             </button>
@@ -148,19 +167,24 @@
             </div>
         </section>
 
-        <section id="location" class="rounded-lg shadow-md p-6 mb-12 fade-in-up" style="background-color: #FFF0E6;">
-            <h2 class="text-3xl cursive mb-6 text-center" style="color: #8C6D69;">Celebration Venue</h2>
-            <div class="location-carousel mb-6">
-                <img src="/images/kln-1.jpg" alt="Venue Image 1" class="active">
-                <img src="/images/kln-2.jpg" alt="Venue Image 2">
-                <img src="/images/kln-3.jpg" alt="Venue Image 3">
-                <img src="/images/kln-4.jpg" alt="Venue Image 4">
-                <img src="/images/kln-5.jpg" alt="Venue Image 5">
-                <img src="/images/kln-6.jpg" alt="Venue Image 6">
-            </div>
-            <p class="mb-4 text-center" style="color: #4A4A4A;"><strong>Venue:</strong> KLN Utsav, Janwada, Hyderabad, Telangana 500075</p>
-            <div class="text-center">
-                <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300" onclick="openDirections()">Get Directions</button>
+        <section id="location" class="location-box">
+            <h2 class="text-5xl cursive mb-2 text-center">Celebration Venue</h2>
+            <div class="rounded-lg shadow-md p-4 mb-12 fade-in-up" style="background-color: #FFF0E6;">
+                <div class="location-carousel mb-6 rounded-lg">
+                    <img src="/images/kln-1.jpg" alt="Venue Image 1" class="active">
+                    <img src="/images/kln-2.jpg" alt="Venue Image 2">
+                    <img src="/images/kln-3.jpg" alt="Venue Image 3">
+                    <img src="/images/kln-4.jpg" alt="Venue Image 4">
+                    <img src="/images/kln-5.jpg" alt="Venue Image 5">
+                    <img src="/images/kln-6.jpg" alt="Venue Image 6">
+                </div>
+                <p class="mb-4 text-center" style="color: #4A4A4A;"><strong>Venue:</strong> KLN Utsav, Janwada,
+                    Hyderabad, Telangana 500075</p>
+                <div class="text-center">
+                    <button
+                        class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300"
+                        onclick="openDirections()">Get Directions</button>
+                </div>
             </div>
         </section>
     </main>
@@ -175,6 +199,7 @@
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

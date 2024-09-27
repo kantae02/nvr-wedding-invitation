@@ -8,7 +8,7 @@ setTimeout(() => {
         navbar.style.opacity = 1;
         navbar.style.pointerEvents = 'auto';
     }, 1000);
-}, 3000);
+}, 5000);
 
 // Header carousel
 const headerCarouselContainer = document.querySelector('.header-carousel-container');
@@ -150,7 +150,7 @@ function animateCards() {
     cards.forEach((card, index) => {
         setTimeout(() => {
             card.classList.add('visible');
-        }, index * 200); // Stagger the animations
+        }, index * 500); // Stagger the animations
     });
 }
 
@@ -242,3 +242,62 @@ window.addEventListener('load', () => {
     initializeLights();
     initializeFlowers();
 });
+
+// Typing animation
+// Typing animation
+function typeWriter(text, i, fnCallback) {
+    if (i < text.length) {
+        document.getElementById("typing-text").innerHTML = text.substring(0, i+1) + '<span class="blinking-cursor">|</span>';
+
+        setTimeout(function() {
+            typeWriter(text, i + 1, fnCallback)
+        }, 100);
+    } else if (typeof fnCallback == 'function') {
+        // Remove the blinking cursor
+        document.getElementById("typing-text").innerHTML = text;
+        setTimeout(fnCallback, 700);
+    }
+}
+
+// Fade in animation
+function fadeIn(element, duration, callback) {
+    element.style.opacity = 0;
+    element.style.display = 'block';
+    let opacity = 0;
+    const interval = 50;
+    const gap = interval / duration;
+
+    function increaseOpacity() {
+        opacity += gap;
+        element.style.opacity = Math.min(opacity, 1);
+        if (opacity < 1) {
+            requestAnimationFrame(increaseOpacity);
+        } else if (callback) {
+            callback();
+        }
+    }
+
+    requestAnimationFrame(increaseOpacity);
+}
+
+// Start the animations
+function startAnimations() {
+    let typingText = "and we are 8 to ∞";
+    typeWriter(typingText, 0, function() {
+        // Typing animation is complete, start the fade-in of main content
+        const mainContent = document.getElementById("main-content");
+        fadeIn(mainContent, 1000, function() {
+            // After fade-in, trigger any CSS animations
+            const heroText = document.querySelector('.hero-text');
+            const tagAnimation = document.querySelector('.tag-animation');
+            
+            if (heroText) heroText.style.animation = 'yourHeroTextAnimation 1s forwards';
+            if (tagAnimation) tagAnimation.style.animation = 'yourTagAnimation 1s forwards';
+        });
+    });
+}
+
+// Call the function when the page loads
+window.onload = function() {
+    startAnimations();
+};

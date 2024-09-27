@@ -134,10 +134,12 @@ header {
 }
 
 #celebration {
-    margin-top: 90px;
+    margin-top: 110px;
     line-height: 1;
 }
-
+#events{
+    margin-top: 100px !important;
+}
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -171,6 +173,14 @@ header {
 .fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
+}
+#location {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.location-box{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .location-carousel {
@@ -414,5 +424,37 @@ footer {
 }
 
 .live-stream-btn {
-    background-color: #2C0E0E;
+    background-color: #8C6D69;
+}
+
+/*typing effect*/
+.blinking-cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#main-content {
+    opacity: 0;
+    display: none;
+}
+
+/* Define your hero text animation */
+@keyframes yourHeroTextAnimation {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Define your tag animation */
+@keyframes yourTagAnimation {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-text, .tag-animation {
+    opacity: 0;
 }
