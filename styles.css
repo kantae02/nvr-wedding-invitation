@@ -405,7 +405,7 @@ footer {
 
 .flower {
     position: fixed;
-    font-size: 24px;
+    font-size: 20px;
     user-select: none;
     z-index: 99;
     pointer-events: none;
@@ -458,3 +458,4 @@ footer {
 .hero-text, .tag-animation {
     opacity: 0;
 }
+
