@@ -163,12 +163,41 @@ document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('animatedText');
 
     text.split('').forEach((char, index) => {
-        const span = document.createElement('span');
-        span.textContent = char;
-        span.style.animationDelay = `${index * 0.1}s`;
-        container.appendChild(span);
+        if (char === ' ') {
+            // Add a space to the container
+            container.appendChild(document.createTextNode(' '));
+        } else {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.animationDelay = `${index * 0.1}s`;
+            
+            if (char === 'v') {
+                span.classList.add('animated-v');
+            }
+            
+            container.appendChild(span);
+        }
     });
 });
+
+const leftName = document.getElementById('leftName');
+const rightName = document.getElementById('rightName');
+
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const threshold = viewportHeight * 0.64; // 70vh
+
+    if (scrollPosition > threshold) {
+        leftName.classList.add('visible');
+        rightName.classList.add('visible');
+    } else {
+        leftName.classList.remove('visible');
+        rightName.classList.remove('visible');
+    }
+});
+
+
 
 // Falling lights animation
 const maxLights = 50;

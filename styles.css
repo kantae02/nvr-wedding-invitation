@@ -14,6 +14,10 @@ body {
 .hero-text {
     animation: fadeInUp 2s ease-in-out;
 }
+.hero-text span {
+    font-size: 0.7em; /* Makes the 'v' 80% of the parent font size */
+    opacity: 0.7;
+}
 
 @keyframes fadeInUp {
     0% {
@@ -24,6 +28,19 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+
+/* Styles for the 'v' in the animated text */
+#animatedText .animated-v {
+    font-size: 0.6em;
+    opacity: 0.7;
+    color: pink; /* This is the Tailwind pink-500 color */
+    font-weight: 400;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 2px !important;
 }
 
 .carousel-item {
@@ -265,6 +282,10 @@ header {
 
 .navbar-text {
     color: #F8F5F0;
+    transition: opacity 0.3s ease-in-out;
+}
+.navbar-text.visible {
+    opacity: 1;
 }
 
 .footer-content {
