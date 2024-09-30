@@ -14,10 +14,7 @@ body {
 .hero-text {
     animation: fadeInUp 2s ease-in-out;
 }
-.hero-text span {
-    font-size: 0.7em; /* Makes the 'v' 80% of the parent font size */
-    opacity: 0.7;
-}
+
 
 @keyframes fadeInUp {
     0% {
@@ -33,15 +30,7 @@ body {
 
 
 /* Styles for the 'v' in the animated text */
-#animatedText .animated-v {
-    font-size: 0.6em;
-    opacity: 0.7;
-    color: pink; /* This is the Tailwind pink-500 color */
-    font-weight: 400;
-    margin-left: 3px;
-    margin-right: 3px;
-    margin-top: 2px !important;
-}
+
 
 .carousel-item {
     transition: opacity 0.5s ease-in-out;
@@ -239,20 +228,23 @@ header {
 }
 
 .event-sangeeth {
-    background-color: #FDF2F8;
+    background-color: #ebdee5;
     z-index: 0;
 }
 
 .event-haldi-mehendi {
-    background-color: #FEF3C7;
+    background-color: #f0e0a2;
     z-index: 0;
 }
 
 .event-wedding {
-    background-color: #FECACA;
+    background-color: #f08f79; /* A lighter maroon */
+
     z-index: 0;
 }
-
+.event-mehendi{
+    background-color: #c6958a;
+}
 @keyframes fadeInUp {
     from {
         opacity: 0;

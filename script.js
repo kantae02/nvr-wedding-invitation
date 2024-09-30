@@ -311,7 +311,7 @@ function fadeIn(element, duration, callback) {
 
 // Start the animations
 function startAnimations() {
-    let typingText = "and we are 8 to ∞";
+    let typingText = "And we are 8 to ∞";
     typeWriter(typingText, 0, function() {
         // Typing animation is complete, start the fade-in of main content
         const mainContent = document.getElementById("main-content");
