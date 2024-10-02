@@ -10,6 +10,60 @@ setTimeout(() => {
     }, 1000);
 }, 5000);
 
+/*loading overlay*/
+
+function showLoading(message) {
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.classList.add('loading-overlay');
+    loadingOverlay.innerHTML = `
+        <div>
+            <div class="spinner"></div>
+            <div class="loading-text">${message}</div>
+        </div>
+    `;
+    document.body.appendChild(loadingOverlay);
+}
+
+function hideLoading() {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    if (loadingOverlay) {
+        loadingOverlay.remove();
+    }
+}
+
+//notification message
+
+function showNotification(message, type = 'success') {
+    const container = document.querySelector('.notification-container') || createNotificationContainer();
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    container.appendChild(notification);
+    
+    // Trigger reflow to ensure the animation works
+    notification.offsetHeight;
+    
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+            if (container.children.length === 0) {
+                container.remove();
+            }
+        }, 500);
+    }, 3000);
+}
+
+function createNotificationContainer() {
+    const container = document.createElement('div');
+    container.className = 'notification-container';
+    document.body.appendChild(container);
+    return container;
+}
+
 // Header carousel
 const headerCarouselContainer = document.querySelector('.header-carousel-container');
 const headerCarouselItems = headerCarouselContainer.querySelectorAll('.header-carousel-item');
@@ -330,3 +384,197 @@ function startAnimations() {
 window.onload = function() {
     startAnimations();
 };
+
+// ... existing code ...
+
+function showPhotoOptions() {
+    document.getElementById('photoModal').classList.remove('hidden');
+    document.getElementById('photoModal').classList.add('flex');
+}
+
+function closePhotoModal() {
+    document.getElementById('photoModal').classList.add('hidden');
+    document.getElementById('photoModal').classList.remove('flex');
+}
+
+let capturedImage = null;
+
+function takePhoto() {
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            const video = document.getElementById('video');
+            video.srcObject = stream;
+            video.play();
+            document.getElementById('cameraView').classList.remove('hidden');
+            document.getElementById('photoModal').classList.add('hidden');
+
+            document.getElementById('captureBtn').onclick = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0);
+                capturedImage = canvas.toDataURL('image/jpeg');
+                showPreview();
+            };
+        })
+        .catch(function(err) {
+            console.error("Error accessing the camera", err);
+            displayMessage("Error accessing the camera. Please try again or use the upload option.");
+        });
+}
+
+
+function showPreview() {
+    const preview = document.getElementById('preview');
+    preview.src = capturedImage;
+    document.getElementById('cameraView').classList.add('hidden');
+    document.getElementById('previewView').classList.remove('hidden');
+}
+
+function retakePhoto() {
+    document.getElementById('previewView').classList.add('hidden');
+    document.getElementById('cameraView').classList.remove('hidden');
+}
+
+
+function uploadCapturedPhoto() {
+    if (capturedImage) {
+        showLoading('Uploading your photo...');
+        sendToGoogleDrive(capturedImage)
+            .then(() => {
+                hideLoading();
+                showNotification('Thank you for sharing your moment! 1 photo has been sent to our wedding album.', 'success');
+                closePreviewView();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                hideLoading();
+                showNotification('There was an error uploading your photo. Please try again.', 'error');
+            });
+    } else {
+        showNotification('No photo captured. Please take a photo first.', 'error');
+    }
+}
+
+function closePreviewView() {
+    document.getElementById('previewView').classList.add('hidden');
+    closeCameraView();
+}
+
+function closeCameraView() {
+    const video = document.getElementById('video');
+    const stream = video.srcObject;
+    if (stream) {
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+    }
+    document.getElementById('cameraView').classList.add('hidden');
+    document.getElementById('photoModal').classList.remove('hidden');
+}
+
+function uploadPhotos() {
+    document.getElementById('fileInput').click();
+}
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const files = event.target.files;
+    if (files.length > 0) {
+        showLoading('Uploading your photos...');
+        let uploadedCount = 0;
+        const totalFiles = files.length;
+
+        const uploadPromises = Array.from(files).map(file => {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    sendToGoogleDrive(e.target.result)
+                        .then(() => {
+                            uploadedCount++;
+                            resolve();
+                        })
+                        .catch(error => {
+                            console.error('Error uploading file:', error);
+                            reject(error);
+                        });
+                };
+                reader.onerror = function(error) {
+                    console.error('Error reading file:', error);
+                    reject(error);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        Promise.all(uploadPromises)
+            .then(() => {
+                hideLoading();
+                const message = uploadedCount === 1
+                    ? 'Thank you for sharing your moment! 1 photo has been sent to our wedding album.'
+                    : `Thank you for sharing your moments! ${uploadedCount} photos have been sent to our wedding album.`;
+                showNotification(message, 'success');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                hideLoading();
+                const failedUploads = totalFiles - uploadedCount;
+                const message = failedUploads === totalFiles
+                    ? 'There was an error uploading your photos. Please try again.'
+                    : `${uploadedCount} photos were uploaded successfully, but ${failedUploads} failed. Please try uploading the failed photos again.`;
+                showNotification(message, 'error');
+            });
+    }
+    closePhotoModal();
+});
+
+function sendToGoogleDrive(imageData) {
+    return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append('photo', dataURItoBlob(imageData), 'photo.jpg');
+
+        const RENDER_API_URL = 'https://wedding-invite-backend.onrender.com/upload';
+
+        fetch(RENDER_API_URL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(result => {
+            console.log('Success:', result);
+            resolve(result);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            reject(error);
+        });
+    });
+}
+
+
+function displayMessage(message) {
+    hideLoading(); // Ensure loading is hidden when displaying a message
+    const resultDiv = document.getElementById('uploadResult');
+    resultDiv.textContent = message;
+    resultDiv.style.display = 'block';
+    
+    setTimeout(() => {
+        resultDiv.style.display = 'none';
+    }, 5000);
+}
+
+function dataURItoBlob(dataURI) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], {type: mimeString});
+}
+
+

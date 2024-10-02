@@ -53,7 +53,7 @@
 
     <main class="container mx-auto px-6  mb-6">
         <section class="text-center mb-8 fade-in-up" id="celebration">
-            <h2 class="text-4xl cursive mb-4">
+            <h2 class="text-4xl cursive mb-4 name-text">
                 <span class="block">Nikhilesh</span>
                 <span class="block">&</span>
                 <span class="block">Vidhatri (Ravali)</span>
@@ -61,15 +61,57 @@
             <p class="text-lg font-light italic text-gray-600 mb-8 tag-line-1">are tying the knot!</p>
             <div class="mt-4">
                 <p class="text-xl cursive mb-1">Help us capture the magic of our special day!</p>
-                <p class="text-base italic text-gray-600 mb-4 tag-line-">Click creative pictures during the celebration
-                    and share them with us.</p>
+                <p class="text-base italic text-gray-600 mb-4 tag-line-">Click creative pictures during the celebration and share them with us.</p>
                 <button
                     class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300 text-base"
-                    onclick="openPhotoSharing()">
+                    onclick="showPhotoOptions()">
                     Share Your Moments
                 </button>
             </div>
         </section>
+        <div id="photoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+            <div class="bg-white p-6 rounded-lg relative">
+                <button onclick="closePhotoModal()" class="absolute top-2 right-2 close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h3 class="text-2xl mb-4 text-center" style="color: #8C6D69;">Share Your Moment</h3>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="takePhoto()" class="custom-pink-btn px-4 py-2 rounded transition duration-300">Take Photo</button>
+                    <button onclick="uploadPhotos()" class="custom-maroon-btn px-4 py-2 rounded transition duration-300">Upload Photos</button>
+                </div>
+                <div id="uploadResult" class="mt-4 text-center" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <div id="cameraView" class="fixed inset-0 bg-black hidden z-50">
+            <button onclick="closeCameraView()" class="absolute top-4 right-4 text-white z-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <video id="video" class="w-full h-full object-cover"></video>
+            <button id="captureBtn" class="absolute bottom-4 left-1/2 transform -translate-x-1/2"></button>
+        </div>
+        
+        <div id="previewView" class="fixed inset-0 bg-black hidden z-50 flex flex-col items-center justify-center">
+            <button onclick="closePreviewView()" class="absolute top-4 right-4 text-white z-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <img id="preview" class="max-w-full max-h-[80vh] object-contain" />
+            <div class="mt-4 flex space-x-4">
+                <button onclick="retakePhoto()" class="custom-maroon-btn px-4 py-2 rounded transition duration-300">Cancel</button>
+                <button onclick="uploadCapturedPhoto()" class="custom-pink-btn px-4 py-2 rounded transition duration-300">Upload</button>
+            </div>
+        </div>
+        
+        <!-- File upload form -->
+        <form id="uploadForm" class="hidden">
+            <input type="file" id="fileInput" multiple accept="image/*">
+        </form>
 
         <section id="events" class="mb-12">
             <h2 class="text-5xl cursive mb-6 text-center fade-in-up">Events</h2>
