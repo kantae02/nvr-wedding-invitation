@@ -604,7 +604,7 @@ function updateEventCardStatus() {
 
         // Check dates for each card
         if (index === 0) { // Sangeeth card
-            shouldDisable = currentDate > new Date('2024-11-04'); // Disable after Nov 4th
+            shouldDisable = currentDate > new Date('2024-11-03'); // Disable after Nov 4th
         } else if (index === 1 || index === 2) { // Haldi/Mehendi and Wedding cards
             shouldDisable = currentDate > new Date('2024-11-16'); // Disable after Nov 17th
 
