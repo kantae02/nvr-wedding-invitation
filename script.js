@@ -317,7 +317,8 @@ function openPhotoSharing() {
 }
 
 function openLiveStream() {
-    alert("Get ready to join us virtually! We'll share the live stream details as we get closer to the big day. Stay tuned for updates!");
+    alert("Get ready to join us virtually! Redirecting you to our live stream.");
+    window.open("https://inkalive.in/vidhathriandnikhileshbabu", "_blank");
 }
 
 // Initialize animations on window load
