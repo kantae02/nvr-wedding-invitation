@@ -38,14 +38,14 @@ function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     container.appendChild(notification);
-    
+
     // Trigger reflow to ensure the animation works
     notification.offsetHeight;
-    
+
     notification.classList.add('show');
-    
+
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const span = document.createElement('span');
             span.textContent = char;
             span.style.animationDelay = `${index * 0.1}s`;
-            
+
             if (char === 'v') {
                 span.classList.add('animated-v');
             }
-            
+
             container.appendChild(span);
         }
     });
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const leftName = document.getElementById('leftName');
 const rightName = document.getElementById('rightName');
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
     const threshold = viewportHeight * 0.64; // 70vh
@@ -331,9 +331,9 @@ window.addEventListener('load', () => {
 // Typing animation
 function typeWriter(text, i, fnCallback) {
     if (i < text.length) {
-        document.getElementById("typing-text").innerHTML = text.substring(0, i+1) + '<span class="blinking-cursor">|</span>';
+        document.getElementById("typing-text").innerHTML = text.substring(0, i + 1) + '<span class="blinking-cursor">|</span>';
 
-        setTimeout(function() {
+        setTimeout(function () {
             typeWriter(text, i + 1, fnCallback)
         }, 100);
     } else if (typeof fnCallback == 'function') {
@@ -367,14 +367,14 @@ function fadeIn(element, duration, callback) {
 // Start the animations
 function startAnimations() {
     let typingText = "And we are 8 to ∞";
-    typeWriter(typingText, 0, function() {
+    typeWriter(typingText, 0, function () {
         // Typing animation is complete, start the fade-in of main content
         const mainContent = document.getElementById("main-content");
-        fadeIn(mainContent, 1000, function() {
+        fadeIn(mainContent, 1000, function () {
             // After fade-in, trigger any CSS animations
             const heroText = document.querySelector('.hero-text');
             const tagAnimation = document.querySelector('.tag-animation');
-            
+
             if (heroText) heroText.style.animation = 'yourHeroTextAnimation 1s forwards';
             if (tagAnimation) tagAnimation.style.animation = 'yourTagAnimation 1s forwards';
         });
@@ -382,7 +382,7 @@ function startAnimations() {
 }
 
 // Call the function when the page loads
-window.onload = function() {
+window.onload = function () {
     startAnimations();
 };
 
@@ -402,14 +402,14 @@ let capturedImage = null;
 
 function takePhoto() {
     navigator.mediaDevices.getUserMedia({ video: true })
-        .then(function(stream) {
+        .then(function (stream) {
             const video = document.getElementById('video');
             video.srcObject = stream;
             video.play();
             document.getElementById('cameraView').classList.remove('hidden');
             document.getElementById('photoModal').classList.add('hidden');
 
-            document.getElementById('captureBtn').onclick = function() {
+            document.getElementById('captureBtn').onclick = function () {
                 const canvas = document.createElement('canvas');
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
@@ -418,7 +418,7 @@ function takePhoto() {
                 showPreview();
             };
         })
-        .catch(function(err) {
+        .catch(function (err) {
             console.error("Error accessing the camera", err);
             displayMessage("Error accessing the camera. Please try again or use the upload option.");
         });
@@ -477,7 +477,7 @@ function uploadPhotos() {
     document.getElementById('fileInput').click();
 }
 
-document.getElementById('fileInput').addEventListener('change', function(event) {
+document.getElementById('fileInput').addEventListener('change', function (event) {
     const files = event.target.files;
     if (files.length > 0) {
         showLoading('Uploading your photos...');
@@ -487,7 +487,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
         const uploadPromises = Array.from(files).map(file => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     sendToGoogleDrive(e.target.result)
                         .then(() => {
                             uploadedCount++;
@@ -498,7 +498,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
                             reject(error);
                         });
                 };
-                reader.onerror = function(error) {
+                reader.onerror = function (error) {
                     console.error('Error reading file:', error);
                     reject(error);
                 };
@@ -538,20 +538,20 @@ function sendToGoogleDrive(imageData) {
             method: 'POST',
             body: formData
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(result => {
-            console.log('Success:', result);
-            resolve(result);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            reject(error);
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log('Success:', result);
+                resolve(result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                reject(error);
+            });
     });
 }
 
@@ -561,7 +561,7 @@ function displayMessage(message) {
     const resultDiv = document.getElementById('uploadResult');
     resultDiv.textContent = message;
     resultDiv.style.display = 'block';
-    
+
     setTimeout(() => {
         resultDiv.style.display = 'none';
     }, 5000);
@@ -575,7 +575,64 @@ function dataURItoBlob(dataURI) {
     for (let i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
     }
-    return new Blob([ab], {type: mimeString});
+    return new Blob([ab], { type: mimeString });
 }
 
 
+
+
+
+// Add this function to your existing JavaScript
+function updateEventCardStatus() {
+    const currentDate = new Date();
+
+    // Define event dates
+    const sangeethDate = new Date('2024-11-03');
+    const haldiDate = new Date('2024-11-16');
+    const weddingDate = new Date('2024-11-17');
+
+    // Get all event cards
+    const eventCards = document.querySelectorAll('.event-card');
+
+    // Check each card and disable if date has passed
+    eventCards.forEach((card, index) => {
+        let shouldDisable = false;
+
+        // Check dates for each card
+        if (index === 0) { // Sangeeth card
+            shouldDisable = currentDate > new Date('2024-11-03'); // Disable after Nov 4th
+        } else if (index === 1 || index === 2) { // Haldi/Mehendi and Wedding cards
+            shouldDisable = currentDate > new Date('2024-11-16'); // Disable after Nov 17th
+
+        } else if (index === 3) { // Wedding card
+            // Disable after Nov 18th for the last card
+            shouldDisable = currentDate > new Date('2024-11-17');
+        }
+
+        if (shouldDisable) {
+            // Add disabled styles
+            card.style.opacity = '0.5';
+            card.style.pointerEvents = 'none';
+
+            // Disable buttons within the card
+            const buttons = card.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.style.backgroundColor = '#cccccc';
+                button.style.cursor = 'not-allowed';
+            });
+
+            // Add a message indicating the event has passed
+            const eventInfo = card.querySelector('.p-6');
+            if (!eventInfo.querySelector('.event-passed-message')) {
+                const message = document.createElement('p');
+                message.className = 'text-red-500 mt-4 font-bold event-passed-message';
+                message.textContent = 'This event has passed';
+                eventInfo.appendChild(message);
+            }
+        }
+    });
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', updateEventCardStatus);
